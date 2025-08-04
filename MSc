@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <
+  <title>Tabbed Interface</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #000;
+      color: white;
+    }
+
+    .tab-container {
+      display: flex;
+      justify-content: center;
+      background-color: #111;
+      padding: 10px 0;
+    }
+
+    .tab {
+      padding: 10px 20px;
+      cursor: pointer;
+      background-color: #222;
+      border: none;
+      color: white;
+      margin: 0 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .tab:hover, .tab.active {
+      background-color: #444;
+    }
+
+    .tab-content {
+      display: none;
+      padding: 20px;
+      text-align: left;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="tab-container">
+    <button class="tab active" onclick="showTab(0)">Insurrection</button>
+    <button class="tab" onclick="showTab(1)">Martial Law</button>
+    <button class="tab" onclick="showTab(2)">About</button>
+  </div>
+
+  <div class="tab-content active" id="tab0">
+    <h2>Insurrection</h2>
+    <p></p>
+    <div class="flourish-embed flourish-chart" data-src="visualisation/24541687"><script src="https://public.flourish.studio/resources/embed.js"></script><noscript><img src="https://public.flourish.studio/visualisation/24541687/thumbnail" width="100%" alt="chart visualization" /></noscript></div>
+  </div>
+
+  <div class="tab-content" id="tab1">
+    <h2>Martial Law</h2>
+    <p></p>
+    <div class="flourish-embed flourish-heatmap" data-src="visualisation/24541273"><script src="https://public.flourish.studio/resources/embed.js"></script><noscript><img src="https://public.flourish.studio/visualisation/24541273/thumbnail" width="100%" alt="heatmap visualization" /></noscript></div>
+  </div>
+
+  <div class="tab-content" id="tab2">
+    <h2>About</h2>
+    <p>Masters thesis submission, University of Glasgow 2025</p>
+  </div>
+
+  <script>
+    function showTab(index) {
+      const tabs = document.querySelectorAll(".tab");
+      const contents = document.querySelectorAll(".tab-content");
+
+      tabs.forEach((tab, i) => {
+        tab.classList.toggle("active", i === index);
+        contents[i].classList.toggle("active", i === index);
+      });
+    }
+  </script>
+
+</body>
+</html>
